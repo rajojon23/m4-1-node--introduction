@@ -16,7 +16,7 @@
         <h2>Bot Chat</h2>
       </div>
       <div class="chat-app__content">
-        <form class="user-form" onsubmit="sendMessage(event)">
+        <form class="user-form" onsubmit="sendMessage(event)"  autocomplete="off" >
           <label for="user-input" class="user-form--label">
             Message the bot
           </label>
@@ -25,6 +25,8 @@
             id="user-input"
             class="user-form--input"
             placeholder="Type your message"
+             type="search" 
+            autocomplete="off" 
           />
           <button class="user-form--button">Send</button>
         </form>

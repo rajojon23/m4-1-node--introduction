@@ -82,7 +82,7 @@ express()
 
   .get('/bot-message', (req, res) => {
 
-
+    console.log("jokestep is" , jokeStep);
    
 
     const randomTime = Math.floor(Math.random() * 700);
@@ -133,19 +133,16 @@ express()
 
     const getBotMessage = (text) => {
 
-       console.log("inside bot message function");
       const commonGreetings = ["hi", "hello", "howdy"];
 
-      const commonJokes = ["joke1", "joke2", "joke3"];
       let botMsg = "";
 
       if(text.indexOf("goodbye") <= -1){
         commonGreetings.every(function(greeting, index) {
 
-           if(text.indexOf(greeting) > -1){
+           if(text.indexOf(greeting) > -1){ //only go here if message is a greeting
 
 
-              console.log("message is a greeting");
               botMsg = greeting;
 
               return false;
@@ -204,7 +201,7 @@ express()
           jokeStep++;
 
           if(text.toLowerCase()=="yes"){
-            botMsg = `${commonJokes[randomJoke]}  Wanna hear another?  please type YES or NO`;
+            botMsg = `${commonJokes[randomJoke]}  Wanna hear another joke?  please type YES or NO`;
           }
           else if(text.toLowerCase()=="no"){
             botMsg = "goodbye then!";
@@ -214,14 +211,14 @@ express()
           return botMsg;
         case 2:
           if(text.toLowerCase()=="yes"){
-            botMsg = `${commonJokes[randomJoke]}  Wanna hear another?  please type YES or NO`;
+            botMsg = `${commonJokes[randomJoke]}  Wanna hear another joke?  please type YES or NO`;
           }
           else if(text.toLowerCase()=="no"){
             botMsg = "goodbye then!";
             jokeStep = 0;
           }
           else{
-            botMsg = "please type YES or NO";
+            botMsg = "I don't understand your answer. Please type YES or NO";
           }
           
           return botMsg;
